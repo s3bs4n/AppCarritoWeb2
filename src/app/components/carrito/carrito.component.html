@@ -1,0 +1,112 @@
+<!-- carrito.component.html -->
+
+<!-- HEADER -->
+<div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom header-">
+        <div class="col-md-6 mb-2 mb-md-0">
+            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+                <img src="../../../assets/img/logo.jpg" id="logo" height="32" alt="Logo">
+            </a>
+        </div>
+        <div class="col-md-4 text-end">
+            <a class="btn btn-outline-danger me-2" routerLink="/login" role="button" (click)="salir()">Salir</a>
+        </div>
+        <!-- CARRITO -->
+        <div class="col-md-1 text-end">
+            <div class="submenu text-end">
+                <img src="../../../assets/img/cart.png" id="img-carrito" alt="Carrito">
+                <div id="carrito">
+                    <table id="lista-carrito" class="u-full-width table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let producto of articulosCarrito">
+                                <td>
+                                    <img [src]="producto.imagen" width="100" alt="Producto">
+                                </td>
+                                <td>{{ producto.nombre }}</td>
+                                <td>{{ formatearPrecio(producto.precio) }}</td>
+                                <td>{{ producto.cantidad }}</td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm borrar-producto" (click)="eliminarProducto(producto.id)">X</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button id="vaciar-carrito" class="btn btn-danger w-100 mb-2" (click)="vaciarCarrito()">Vaciar Carrito</button>
+                    <button id="pagar-carrito" class="btn btn-success w-100" (click)="irAPagar()">Ir a Pagar</button>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
+
+<div class="b-example-divider"></div>
+
+<!-- BANNER -->
+<div id="banner">
+    <div class="container nav justify-content-center">
+        <img src="../../../assets/img/Originales/SNES_logo.svg.png" alt="Overlay Image" class="overlay-image">
+    </div>
+</div>
+
+<div class="barra">
+    <div class="container-sm">
+        <div class="text-center d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3">
+            <div>
+                <p>Más de 5.000 productos <br>Exploralos todos </p>
+            </div>
+            <div>
+                <p>De todas las marcas<br>Desde la NES hasta Wii</p>
+            </div>
+            <div>
+                <p>Exige nuestro catálogo<br>Cotiza sin compromiso</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PRODUCTOS -->
+<div id="lista-productos" class="container mt-5">
+    <h1 id="encabezado" class="text-center mb-4">Artículos Super Nintendo</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-3 mb-4" *ngFor="let producto of productos">
+            <div class="card border-light shadow-sm">
+                <img [src]="producto.imagen" class="card-img-top" [alt]="producto.nombre">
+                <div class="card-body">
+                    <h4 class="card-title fs-6 fw-bold">{{ producto.nombre }}</h4>
+                    <p class="card-text">{{ producto.categoria }}</p>
+                    <img src="../../../assets/img/estrellas.png" class="mb-2" alt="Estrellas">
+                    <p class="fs-5 fw-bold text-end precio">{{ formatearPrecio(producto.precio) }}</p>
+                    <button class="btn btn-primary w-100 agregar-carrito fw-bold" (click)="agregarProducto(producto)">Agregar Al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="footer" class="footer bg-secondary-subtle py-4 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                <nav id="principal" class="menu">
+                    <a class="enlace me-3" href="#">Volver arriba</a>
+                    <a class="enlace" href="#">Instagram</a>
+                </nav>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <nav id="secundaria" class="menu">
+                    <a class="enlace" href="#">Más catálogo</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</footer>

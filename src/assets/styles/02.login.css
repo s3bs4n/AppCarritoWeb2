@@ -1,0 +1,11 @@
+body {
+    background: #F6F9FC;
+    /*background: linear-gradient(to right, #ffa751, #ffe259);*/
+}
+
+.bg{
+    background-image: url(../../assets/img/banner_inicio_sesion.jpg);
+    background-position: center center;
+    background-size: cover;
+    /*filter: blur(1px);*/
+}

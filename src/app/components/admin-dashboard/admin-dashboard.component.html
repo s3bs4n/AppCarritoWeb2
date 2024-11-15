@@ -1,0 +1,27 @@
+<!-- admin-dashboard.component.html -->
+
+<div class="container">
+  <h1>Admin Dashboard</h1>
+  <p>Bienvenido al panel de administración.</p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Acciones</th> <!-- Nueva columna para acciones -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.email }}</td>
+        <td>{{ user.password }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="eliminarUsuario(user)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button class="btn btn-primary" (click)="logout()">Salir</button>
+</div>

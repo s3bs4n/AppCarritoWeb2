@@ -1,0 +1,55 @@
+<div class="py-5 text-center">
+  <img class="d-block mx-auto mb-4" src="assets/img/logo.jpg" alt="" height="57">
+  <h2>La tienda más grande de juegos Retro</h2>
+  <p class="lead">¿Confirma su compra?</p>
+
+  <header id="header" class="header">
+    <div class="container">
+      <div class="row">
+        <div id="precioTotal" class="two columns u-pull-right">
+          <div id="carrito">
+            <table id="lista-carrito" class="u-full-width table table-striped table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>Imagen</th>
+                  <th>Nombre</th>
+                  <th>Precio</th>
+                  <th>Cantidad</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let producto of productosCarrito">
+                  <td><img [src]="producto.imagen" width="100"></td>
+                  <td>{{ producto.nombre }}</td>
+                  <td>{{ producto.precio | currency }}</td>
+                  <td>{{ producto.cantidad }}</td>
+                  <td>{{ producto.precio * producto.cantidad | currency }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <h4>Total: {{ precioTotal | currency }}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <button type="button" class="btn btn-success w-25" data-bs-toggle="modal" data-bs-target="#modalChoice">Confirmar</button>
+  <a routerLink="/carrito" class="btn btn-danger w-25">Cancelar</a>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalChoice" tabindex="-1" aria-labelledby="modalChoiceLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content rounded-3 shadow">
+      <div class="modal-body p-4 text-center">
+        <h4 class="mb-0">Compra realizada con Éxito!!!</h4>
+      </div>
+      <div class="modal-footer justify-content-center flex-nowrap p-0">
+        <button (click)="volverAlInicio()" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0">
+          <strong>Volver al Inicio</strong>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

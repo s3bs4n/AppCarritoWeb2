@@ -1,0 +1,34 @@
+<div class="container w-75 rounded shadow mt-5">
+    <div class="row align-items-stretch">
+      <div class="col col-md-5 col-lg-6 bg d-none d-md-block p-5"></div>
+      <div class="col col-md-7 col-lg-6 bg-white p-5">
+        <h2 class="fw-bold text-center py-3">Iniciar Sesión</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+          <div class="mb-4">
+            <label for="txt_correo" class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control" id="txt_correo" formControlName="correo" required>
+            <div *ngIf="loginForm.get('correo')?.invalid && loginForm.get('correo')?.touched" class="text-danger">
+              <small *ngIf="loginForm.get('correo')?.errors?.['required']">El correo es obligatorio.</small>
+              <small *ngIf="loginForm.get('correo')?.errors?.['email']">Ingrese un correo válido.</small>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label for="txt_clave" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="txt_clave" formControlName="clave" required>
+            <div *ngIf="loginForm.get('clave')?.invalid && loginForm.get('clave')?.touched" class="text-danger">
+              <small *ngIf="loginForm.get('clave')?.errors?.['required']">La contraseña es obligatoria.</small>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+          <div class="my-3">
+            <span>¿Olvidaste tu contraseña? Recupérala <a class="text-primary" routerLink="/contrasenia" (click)="irContrasenia()">Aquí</a> </span>
+          </div>
+          <div class="my-3">
+            <span>¿Nuevo aquí? Crea tu cuenta <a class="text-primary" routerLink="/registro" (click)="irRegistro()">Aquí</a> </span>
+          </div>
+          <div *ngIf="error" class="alert alert-danger mt-3">{{ error }}</div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

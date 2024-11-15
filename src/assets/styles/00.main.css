@@ -1,0 +1,80 @@
+.custom-container {
+    max-width: 540px;
+    margin: auto; /* Centra el contenedor horizontalmente */
+  }
+  
+.header-a {
+    height: 80px;
+    max-width: 1050px; /* Cambiado de width a max-width */
+    background-color: #ffffff; /* Color de fondo opcional */
+    margin: auto; /* Centrar horizontalmente */
+  }
+
+.submenu {
+    position: relative;
+}
+
+.submenu #carrito{
+    display: none;
+}
+.submenu:hover #carrito{
+    display: block;
+    position: absolute;
+    right:0;
+
+    top:100%;
+    z-index: 1;
+    background-color: white;
+    padding: 20px;
+    min-height: 400px;
+    min-width: 300px;
+}
+
+.borrar-producto {
+    background-color: red;
+    border-radius: 50%;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+  
+#banner {
+    background-image:url(../img/banner.jpg);
+    height: 400px;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+}
+
+.overlay-image {
+    display: flex;
+    width: 35%;
+    height: auto;
+}
+
+@media (max-width: 1000px) {
+    #banner {
+        height: 200px;
+    }
+}
+
+
+.barra {
+    padding: 10px 0;
+    background: #741d51; /* Old browsers */
+    background: -moz-linear-gradient(left, #741d51 0%, #e44e52 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #741d51 0%,#e44e52 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #741d51 0%,#e44e52 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#741d51', endColorstr='#e44e52',GradientType=1 ); /* IE6-9 */
+}
+
+.barra p {
+    margin:0;
+    color: white;
+}
