@@ -6,6 +6,7 @@ import { routes } from './app/app.routes'; // Ajusta la ruta según la estructur
 import { provideRouter } from '@angular/router';
 import { importProvidersFrom } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { provideHttpClient } from '@angular/common/http';
 
 // bootstrapApplication(AppComponent, appConfig)
 //   .catch((err) => console.error(err));
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
   bootstrapApplication(AppComponent, {
     providers: [
       provideRouter(routes),
-      importProvidersFrom(FormsModule)
+      importProvidersFrom(FormsModule),
+      provideHttpClient(), // Proveedor de HttpClient
     ]
   }).catch(err => console.error(err));
 

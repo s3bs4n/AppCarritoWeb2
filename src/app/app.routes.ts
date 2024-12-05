@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { ListaProductosComponent } from './components/lista-productos/lista-productos.component';
 import { LoginComponent } from './components/login/login.component';
@@ -9,6 +10,8 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 // import { AuthGuard } from './guards/auth.guard';
 // import { AdminGuard } from './guards/admin.guard';
+import { AdminProductosComponent } from './components/admin-productos/admin-productos.component';
+
 
 export const routes: Routes = [
     { path: 'carrito', component: CarritoComponent },
@@ -20,7 +23,12 @@ export const routes: Routes = [
     { path: 'registro', component: RegistroComponent },
 
     { path: 'contrasenia', component: ContraseniaComponent },
-    { path: '**', redirectTo: 'login' }
+    // { path: '**', redirectTo: 'login' },
+    
+    // Nuevas rutas
+    { path: 'admin-productos', component: AdminProductosComponent },
+    // { path: '**', redirectTo: 'admin-productos' },
+    
 ];
 
 
