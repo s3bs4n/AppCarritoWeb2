@@ -29,7 +29,7 @@
                         <tbody>
                             <tr *ngFor="let producto of articulosCarrito">
                                 <td>
-                                    <img [src]="producto.imagen" width="100" alt="Producto">
+                                    <img [src]="producto.imagenPath" width="100" alt="Producto">
                                 </td>
                                 <td>{{ producto.nombre }}</td>
                                 <td>{{ formatearPrecio(producto.precio) }}</td>
@@ -79,7 +79,7 @@
     <div class="row justify-content-center">
         <div class="col-md-3 mb-4" *ngFor="let producto of productos">
             <div class="card border-light shadow-sm">
-                <img [src]="producto.imagen" class="card-img-top" [alt]="producto.nombre">
+                <img [src]="producto.imagenPath" class="card-img-top" [alt]="producto.nombre">
                 <div class="card-body">
                     <h4 class="card-title fs-6 fw-bold">{{ producto.nombre }}</h4>
                     <p class="card-text">{{ producto.categoria }}</p>
