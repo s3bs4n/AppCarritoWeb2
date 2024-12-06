@@ -17,7 +17,7 @@ export class AdminProductosComponent implements OnInit {
   precio: number | null = null;
   idSeleccionado: number | null = null; // Para identificar si se edita un producto
 
-  constructor(private productosService: ProductosService) {}
+  constructor(private productosService: ProductosService) { }
 
   ngOnInit(): void {
     this.cargarProductos();
@@ -28,7 +28,11 @@ export class AdminProductosComponent implements OnInit {
     this.productosService.getProductos().subscribe(
       (data) => {
         console.log('Productos cargados:', data);
-        this.productos = data;
+        // Agregar una propiedad "imagenPath" para cada producto
+        this.productos = data.map((producto: any) => ({
+          ...producto,
+          imagenPath: this.generarRutaImagen(producto.nombre),
+        }));
       },
       (error) => {
         console.error('Error al cargar productos:', error);
@@ -36,8 +40,20 @@ export class AdminProductosComponent implements OnInit {
     );
   }
 
+  // Generar la ruta de la imagen en función del nombre del producto
+  generarRutaImagen(nombre: string): string {
+    const nombreFormateado = nombre.toLowerCase().replace(/\s+/g, '-'); // Reemplaza espacios por guiones
+    console.log('Ruta generada:', nombreFormateado); // Verificar en consola
+    return `assets/img/${nombreFormateado}.jpg`; // Ruta esperada
+  }
+
   // Agregar o modificar un producto
   submitForm(): void {
+    if (!this.nombre || this.precio === null) {
+      alert('Todos los campos son obligatorios.');
+      return;
+    }
+
     const producto = {
       nombre: this.nombre,
       precio: this.precio,
