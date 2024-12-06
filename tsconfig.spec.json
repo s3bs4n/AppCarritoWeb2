@@ -8,6 +8,9 @@
       "jasmine"
     ]
   },
+  "files": [
+    "src/test.ts" // Aquí debe estar incluido
+  ],
   "include": [
     "src/**/*.spec.ts",
     "src/**/*.d.ts"
