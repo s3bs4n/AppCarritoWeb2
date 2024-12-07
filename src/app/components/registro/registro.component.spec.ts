@@ -14,7 +14,7 @@ describe('RegistroComponent', () => {
     routerSpy = jasmine.createSpyObj('Router', ['navigate']);
 
     await TestBed.configureTestingModule({
-      declarations: [RegistroComponent],
+      imports: [RegistroComponent],
       providers: [
         { provide: AuthService, useValue: authServiceSpy },
         { provide: Router, useValue: routerSpy }

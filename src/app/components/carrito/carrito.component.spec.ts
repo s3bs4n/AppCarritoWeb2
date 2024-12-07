@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CarritoComponent } from './carrito.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ProductosService } from '../../services/productos.service';
 
 describe('CarritoComponent', () => {
   let component: CarritoComponent;
@@ -11,10 +12,10 @@ describe('CarritoComponent', () => {
     localStorageSpy = jasmine.createSpyObj('Storage', ['getItem', 'setItem']);
 
     await TestBed.configureTestingModule({
-      declarations: [CarritoComponent],
-      imports: [HttpClientTestingModule], // Agregar HttpClientTestingModule para servicios
-      providers: [{ provide: Storage, useValue: localStorageSpy }]
+      imports: [CarritoComponent, HttpClientTestingModule],
+      providers: [{ provide: ProductosService, useValue: ProductosService }]
     }).compileComponents();
+    
 
     fixture = TestBed.createComponent(CarritoComponent);
     component = fixture.componentInstance;

@@ -3,5 +3,5 @@ projectKey=s3bs4n_AppCarritoWeb2
 serverUrl=https://sonarcloud.io
 serverVersion=8.0.0.58426
 dashboardUrl=https://sonarcloud.io/dashboard?id=s3bs4n_AppCarritoWeb2
-ceTaskId=AZOeyNUWWKmHVFN7gQAD
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZOeyNUWWKmHVFN7gQAD
+ceTaskId=AZOjE0i-CiZeCM53HKt8
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZOjE0i-CiZeCM53HKt8

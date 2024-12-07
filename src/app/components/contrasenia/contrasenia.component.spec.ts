@@ -14,8 +14,7 @@ describe('ContraseniaComponent', () => {
     authServiceSpy = jasmine.createSpyObj('AuthService', ['recoverPassword']);
 
     await TestBed.configureTestingModule({
-      declarations: [ContraseniaComponent],
-      imports: [ReactiveFormsModule, RouterTestingModule],
+      imports: [ContraseniaComponent, ReactiveFormsModule, RouterTestingModule],
       providers: [{ provide: AuthService, useValue: authServiceSpy }]
     }).compileComponents();
 

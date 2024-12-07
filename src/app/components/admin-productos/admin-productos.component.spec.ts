@@ -10,11 +10,11 @@ describe('AdminProductosComponent', () => {
   let productoServiceSpy: jasmine.SpyObj<ProductosService>;
 
   beforeEach(async () => {
+    productoServiceSpy.getProductos.and.returnValue(of([]));
     productoServiceSpy = jasmine.createSpyObj('ProductosService', ['getProductos', 'createProducto', 'updateProducto', 'deleteProducto']);
 
     await TestBed.configureTestingModule({
-      declarations: [AdminProductosComponent],
-      imports: [HttpClientTestingModule],
+      imports: [AdminProductosComponent, HttpClientTestingModule],
       providers: [{ provide: ProductosService, useValue: productoServiceSpy }]
     }).compileComponents();
 
