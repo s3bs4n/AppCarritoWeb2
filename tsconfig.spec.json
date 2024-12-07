@@ -1,18 +1,24 @@
-/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
-/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
-    "types": [
-      "jasmine"
-    ]
+    "types": ["jasmine", "node"], // Incluye "node" para permitir módulos relacionados con Node.js si son necesarios.
+    "esModuleInterop": true,     // Permite compatibilidad con módulos ES.
+    "emitDecoratorMetadata": true, // Permite decoradores (Angular).
+    "experimentalDecorators": true // Habilita decoradores para TypeScript.
   },
   "files": [
-    "src/test.ts" // Aquí debe estar incluido
+    "src/test.ts"
   ],
   "include": [
-    "src/**/*.spec.ts",
-    "src/**/*.d.ts"
+    "src/**/*.spec.ts", // Asegúrate de que incluya todos los archivos de pruebas.
+    "src/**/*.d.ts",
+    "src/app/**/*.ts" // Incluye todos los archivos de tu app.
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.ngfactory.ts",
+    "**/*.ngsummary.ts"
   ]
 }
